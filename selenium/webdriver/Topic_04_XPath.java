@@ -25,7 +25,7 @@ public class Topic_04_XPath {
 	}
 
 	private void ClearFormData() {
-		// Clear data after filling the blank
+		// Clear data after filling in the blank
 
 		driver.findElement(By.cssSelector("input[id='txtFirstname']")).clear();
 		driver.findElement(By.cssSelector("input[id='txtEmail']")).clear();
