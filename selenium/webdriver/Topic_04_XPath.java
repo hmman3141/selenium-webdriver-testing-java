@@ -13,12 +13,17 @@ import org.testng.annotations.Test;
 public class Topic_04_XPath {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
+	String osName = System.getProperty("os.name");
 
 	@BeforeClass
 	public void beforeClass() {
-		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
+		if (osName.contains("Mac")) {
+			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
+		} else {
+			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+		}
 
+		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
