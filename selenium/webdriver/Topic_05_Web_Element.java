@@ -114,7 +114,7 @@ public class Topic_05_Web_Element {
 		Assert.assertTrue(!sliderDisable.isEnabled());
 
 		// check isEnabled
-		System.out.println("Check isEnabled");
+		System.out.println("-- Check isEnabled");
 		System.out.println("Email: " + emailInput.isDisplayed());
 		System.out.println("Under18: " + under18Radio.isDisplayed());
 		System.out.println("Education: " + eduTextArea.isDisplayed());
@@ -145,8 +145,88 @@ public class Topic_05_Web_Element {
 		// Unclick elements
 		javaCheckbox.click();
 
-		// isNotSelected verification
+		// isDeSelected verification
 		Assert.assertTrue(!javaCheckbox.isSelected());
+
+		// check isSelected
+		if (under18Radio.isSelected()) {
+			System.out.println("Under18 is selected");
+		} else {
+			System.out.println("Under18 is deselected");
+		}
+
+		if (javaCheckbox.isSelected()) {
+			System.out.println("Java CheckBox is selected");
+		} else {
+			System.out.println("Java CheckBox is deselected");
+		}
+	}
+
+	@Test
+	public void TC_04_MailChimp_SignUp() {
+		// Open website
+		driver.get("https://login.mailchimp.com/signup/");
+
+		// Declaration
+		WebElement email = driver.findElement(By.id("email"));
+		WebElement password = driver.findElement(By.id("new_password"));
+		WebElement lowercase = driver.findElement(By.xpath("//li[contains(@class,'lowercase-char')]"));
+		WebElement uppercase = driver.findElement(By.xpath("//li[contains(@class,'uppercase-char')]"));
+		WebElement number = driver.findElement(By.xpath("//li[contains(@class,'number-char')]"));
+		WebElement specialCharacter = driver.findElement(By.xpath("//li[contains(@class,'special-char')]"));
+		WebElement char_8 = driver.findElement(By.xpath("//li[contains(@class,'8-char')]"));
+
+		// Send email key
+		email.sendKeys("hmm@gmail.com");
+
+		// Send lowercase password
+		password.sendKeys("aaa");
+		// verify password
+		Assert.assertTrue(lowercase.getAttribute("class").contains("lowercase-char completed"));
+		Assert.assertTrue(uppercase.getAttribute("class").contains("uppercase-char not-completed"));
+		Assert.assertTrue(number.getAttribute("class").contains("number-char not-completed"));
+		Assert.assertTrue(specialCharacter.getAttribute("class").contains("special-char not-completed"));
+		Assert.assertTrue(char_8.getAttribute("class").contains("8-char not-completed"));
+
+		// Send uppercase password
+		password.clear();
+		password.sendKeys("AAA");
+		// verify password
+		Assert.assertTrue(lowercase.getAttribute("class").contains("lowercase-char not-completed"));
+		Assert.assertTrue(uppercase.getAttribute("class").contains("uppercase-char completed"));
+		Assert.assertTrue(number.getAttribute("class").contains("number-char not-completed"));
+		Assert.assertTrue(specialCharacter.getAttribute("class").contains("special-char not-completed"));
+		Assert.assertTrue(char_8.getAttribute("class").contains("8-char not-completed"));
+
+		// Send number password
+		password.clear();
+		password.sendKeys("1");
+		// verify password
+		Assert.assertTrue(lowercase.getAttribute("class").contains("lowercase-char not-completed"));
+		Assert.assertTrue(uppercase.getAttribute("class").contains("uppercase-char not-completed"));
+		Assert.assertTrue(number.getAttribute("class").contains("number-char completed"));
+		Assert.assertTrue(specialCharacter.getAttribute("class").contains("special-char not-completed"));
+		Assert.assertTrue(char_8.getAttribute("class").contains("8-char not-completed"));
+
+		// Send special character password
+		password.clear();
+		password.sendKeys("!@#$%");
+		// verify password
+		Assert.assertTrue(lowercase.getAttribute("class").contains("lowercase-char not-completed"));
+		Assert.assertTrue(uppercase.getAttribute("class").contains("uppercase-char not-completed"));
+		Assert.assertTrue(number.getAttribute("class").contains("number-char not-completed"));
+		Assert.assertTrue(specialCharacter.getAttribute("class").contains("special-char completed"));
+		Assert.assertTrue(char_8.getAttribute("class").contains("8-char not-completed"));
+
+		// Send enough 8 characters password
+		password.clear();
+		password.sendKeys("12345678");
+		// verify password
+		Assert.assertTrue(lowercase.getAttribute("class").contains("lowercase-char not-completed"));
+		Assert.assertTrue(uppercase.getAttribute("class").contains("uppercase-char not-completed"));
+		Assert.assertTrue(number.getAttribute("class").contains("number-char completed"));
+		Assert.assertTrue(specialCharacter.getAttribute("class").contains("special-char not-completed"));
+		Assert.assertTrue(char_8.getAttribute("class").contains("8-char completed"));
 	}
 
 	@AfterClass
