@@ -27,19 +27,18 @@ public class Topic_00_Template {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+	}
 
+	@Test
+	public void TC_01_() {
 		// Open website
 		driver.get("");
 	}
 
 	@Test
-	public void TC_01_() {
-		
-	}
-
-	@Test
 	public void TC_02_() {
-		
+		// Open website
+		driver.get("");
 	}
 
 	@AfterClass

@@ -1,7 +1,5 @@
 package webdriver;
 
-import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
