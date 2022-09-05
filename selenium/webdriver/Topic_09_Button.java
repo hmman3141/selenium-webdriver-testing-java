@@ -38,7 +38,7 @@ public class Topic_09_Button {
 		// Declaration
 		String username = "a@yahoo.com";
 		String password = "123456";
-		String hexCode = "#c92127";
+		String hexCode = "#C92127";
 
 		// Go to login page
 		driver.findElement(By.cssSelector("ul#popup-login-tab_list>li.popup-login-tab-login>a")).click();
@@ -55,7 +55,7 @@ public class Topic_09_Button {
 		
 		// Verify login button color
 		String backgroundColor = driver.findElement(By.cssSelector("button.fhs-btn-login")).getCssValue("background-color");
-		String hexCodeActual = Color.fromString(backgroundColor).asHex();
+		String hexCodeActual = Color.fromString(backgroundColor).asHex().toUpperCase();
 		Assert.assertEquals(hexCodeActual, hexCode);
 	}
 

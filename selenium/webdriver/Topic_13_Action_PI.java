@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -23,6 +24,7 @@ public class Topic_13_Action_PI {
 	WebDriverWait explicitWait;
 	JavascriptExecutor jsExecutor;
 	Actions action;
+	Alert alert;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 
@@ -49,7 +51,7 @@ public class Topic_13_Action_PI {
 			// TODO: handle exception
 		}
 	}
-	
+
 	private void scrollToElement(WebElement element) {
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
@@ -158,15 +160,57 @@ public class Topic_13_Action_PI {
 		// Declaration
 		String doubleClickText = "Hello Automation Guys!";
 		WebElement button = driver.findElement(By.xpath("//button[text()='Double click me']"));
-		
+
 		// Scroll to element
 		scrollToElement(button);
 
 		// Double click button
 		action.doubleClick(button).perform();
-		
+
 		// Verify text
 		Assert.assertEquals(driver.findElement(By.id("demo")).getText(), doubleClickText);
+	}
+
+	@Test
+	public void TC_07_Right_Click() {
+		// Open website
+		driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
+
+		// Right click button
+		action.contextClick(driver.findElement(By.xpath("//span[text()='right click me']"))).perform();
+
+		// Move pointer to element
+		action.moveToElement(
+				driver.findElement(By.xpath("//li[contains(@class,'context-menu-item')]/span[text()='Quit']")))
+				.perform();
+
+		// Verify text
+		Assert.assertTrue(
+				driver.findElement(By.xpath("//span[text()='Quit']/parent::li[contains(@class,'context-menu-item')]"))
+						.getAttribute("class").contains("context-menu-hover"));
+		Assert.assertTrue(
+				driver.findElement(By.xpath("//span[text()='Quit']/parent::li[contains(@class,'context-menu-item')]"))
+						.getAttribute("class").contains("context-menu-visible"));
+
+		// Click
+		action.click().perform();
+
+		// Get alert
+		alert = driver.switchTo().alert();
+
+		// Verify alert
+		Assert.assertEquals(alert.getText(), "clicked: quit");
+
+		// Accept alert
+		alert.accept();
+
+		// Verify text
+		Assert.assertFalse(
+				driver.findElement(By.xpath("//span[text()='Quit']/parent::li[contains(@class,'context-menu-item')]"))
+						.getAttribute("class").contains("context-menu-hover"));
+		Assert.assertFalse(
+				driver.findElement(By.xpath("//span[text()='Quit']/parent::li[contains(@class,'context-menu-item')]"))
+						.getAttribute("class").contains("context-menu-visible"));
 	}
 
 	@AfterClass
