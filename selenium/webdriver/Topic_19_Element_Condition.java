@@ -12,7 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_19_Wait {
+public class Topic_19_Element_Condition {
 	WebDriver driver;
 	WebDriverWait explicitWait;
 	JavascriptExecutor jsExecutor;
@@ -54,7 +54,7 @@ public class Topic_19_Wait {
 	}
 
 	@Test
-	public void TC_01_Invisibility() {
+	public void TC_02_Invisibility() {
 		// Open website
 		driver.get("https://www.facebook.com/");
 		
@@ -67,7 +67,7 @@ public class Topic_19_Wait {
 	}
 	
 	@Test
-	public void TC_01_Presence() {
+	public void TC_03_Presence() {
 		// Open website
 		driver.get("https://www.facebook.com/");
 
@@ -80,7 +80,7 @@ public class Topic_19_Wait {
 	}
 	
 	@Test
-	public void TC_01_Staleness() {
+	public void TC_04_Staleness() {
 		// Open website
 		driver.get("https://www.facebook.com/");
 		
