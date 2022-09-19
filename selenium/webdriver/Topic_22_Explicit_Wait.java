@@ -14,7 +14,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_19_Explicit_Wait {
+public class Topic_22_Explicit_Wait {
 	WebDriver driver;
 	WebDriverWait explicitWait;
 	String projectPath = System.getProperty("user.dir");
