@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="false" name="Suite">
+	<test name="Test">
+		<groups>
+			<run>
+				<include name="admin" />
+			</run>
+		</groups>
+
+		<packages>
+			<package name="testng_framework" />
+		</packages>
+
+		<classes>
+			<!-- <class name="testng_framework.Part_I_Annotation" /> -->
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
