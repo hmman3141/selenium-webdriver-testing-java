@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="false" name="Suite">
+	<!-- Parameter -->
+	<test name="Run of FireFox">
+		<parameter name="browser" value="Firefox"></parameter>
+		<classes>
+			<class name="testng_framework.Topic_05_Parameter_Browser" />
+		</classes>
+	</test>
+	<test name="Run of Chrome">
+		<parameter name="browser" value="Chrome"></parameter>
+		<classes>
+			<class name="testng_framework.Topic_05_Parameter_Browser" />
+		</classes>
+	</test>
+</suite> <!-- Suite -->

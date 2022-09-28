@@ -1,17 +1,11 @@
 package testng_framework;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.AfterSuite;
 
 public class Topic_03_Group {
 	WebDriver driver;
@@ -38,24 +32,8 @@ public class Topic_03_Group {
 
 	}
 
-	@BeforeMethod
-	public void beforeMethod() {
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-	}
-
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void beforeClass() {
-	}
-
-	@AfterClass
-	public void afterClass() {
-	}
-
-	@BeforeTest(alwaysRun = true)
-	public void beforeTest() {
 		if (osName.contains("Mac")) {
 			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
 		} else {
@@ -64,17 +42,8 @@ public class Topic_03_Group {
 		driver = new FirefoxDriver();
 	}
 
-	@AfterTest(alwaysRun = true)
-	public void afterTest() {
+	@AfterClass(alwaysRun = true)
+	public void afterClass() {
 		driver.quit();
 	}
-
-	@BeforeSuite
-	public void beforeSuite() {
-	}
-
-	@AfterSuite
-	public void afterSuite() {
-	}
-
 }

@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parallel="false" name="Suite">
-	<test name="Test">
-		<groups>
-			<run>
-				<include name="admin" />
-			</run>
-		</groups>
-
-		<packages>
-			<package name="testng_framework" />
-		</packages>
-
+	<!-- Class -->
+	<test name="Class">
 		<classes>
-			<!-- <class name="testng_framework.Part_I_Annotation" /> -->
+			<!-- <class name="testng_framework.Topic_01_Annotation" /> -->
+			<!-- <class name="testng_framework.Topic_02_Priority" /> -->
+			<!-- <class name="testng_framework.Topic_04_Data_Provider" /> -->
+			<class name="testng_framework.Topic_07_Invocation_Count" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

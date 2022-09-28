@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="false" name="Suite">
+	<!-- Parameter -->
+	<parameter name="environment" value="live"></parameter>
+	<test name="Run of FireFox">
+		<parameter name="browser" value="Firefox"></parameter>
+		<classes>
+			<class name="testng_framework.Topic_06_Parameter_Environment" />
+		</classes>
+	</test>
+</suite> <!-- Suite -->
