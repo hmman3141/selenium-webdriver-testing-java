@@ -7,7 +7,8 @@
 			<!-- <class name="testng_framework.Topic_01_Annotation" /> -->
 			<!-- <class name="testng_framework.Topic_02_Priority" /> -->
 			<!-- <class name="testng_framework.Topic_04_Data_Provider" /> -->
-			<class name="testng_framework.Topic_07_Invocation_Count" />
+			<!-- <class name="testng_framework.Topic_07_Invocation_Count" /> -->
+			<class name="testng_framework.Topic_08_Depend" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
